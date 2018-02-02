@@ -11,6 +11,7 @@ public class GreenLightningAWS implements GreenApp
     {
         builder.enableTelemetry();
         builder.useNetClient(new TLSCertificates() {
+        //put all your certs in the resources folder
             @Override
             public String keyStoreResourceName() {
                 return "<path to your keystore>"; //Keystore has the cert and private key from AWS
