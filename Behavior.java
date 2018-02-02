@@ -9,8 +9,8 @@ import com.ociweb.pronghorn.pipe.ChannelReader;
 public class Behavior implements StartupListener, HTTPResponseListener {
 
     GreenCommandChannel cmd;
-    HTTPSession session=new HTTPSession("a235s0ler27298.iot.us-east-1.amazonaws.com",8443);
-    String path="/things/GreenLightningThing/shadow";
+    HTTPSession session=new HTTPSession("<your API endpoint>",8443);
+    String path="<your topic>";
 
     public Behavior(GreenRuntime runtime)
     {
