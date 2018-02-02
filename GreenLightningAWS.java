@@ -5,8 +5,7 @@ import com.ociweb.pronghorn.network.TLSCertificates;
 public class GreenLightningAWS implements GreenApp
 {
 
-    String brokerHost="a235s0ler27298.iot.us-east-1.amazonaws.com";
-
+    String brokerHost="<your API Endpoint>";
     @Override
     public void declareConfiguration(Builder builder)
     {
@@ -14,22 +13,22 @@ public class GreenLightningAWS implements GreenApp
         builder.useNetClient(new TLSCertificates() {
             @Override
             public String keyStoreResourceName() {
-                return "/certificate/cacertthencertwithkey.jks";
+                return "<path to your keystore>"; //Keystore has the cert and private key from AWS
             }
 
             @Override
             public String trustStroreResourceName() {
-                return "/certificate/myTrustStore.jks";
+                return "<path to your truststore>"; //Truststore has the rootCA from AWS
             }
 
             @Override
             public String keyStorePassword() {
-                return "nopassword";
+                return "< your keystore password>";
             }
 
             @Override
             public String keyPassword() {
-                return "nopassword";
+                return "<your truststore password>";
             }
 
             @Override
@@ -43,10 +42,9 @@ public class GreenLightningAWS implements GreenApp
     @Override
     public void declareBehavior(GreenRuntime runtime)
     {
-
         System.out.println("*****************Enter declare behavior****************");
         Behavior behavior=new Behavior(runtime);
         runtime.addResponseListener(behavior);
-       System.out.println("*****************Exit declare behavior****************");
+        System.out.println("*****************Exit declare behavior****************");
     }
 }
